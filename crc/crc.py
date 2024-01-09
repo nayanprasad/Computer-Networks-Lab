@@ -45,7 +45,8 @@ def decrypt(data):
 
 
 def main():
-    data = input()
+    # data = input()
+    data = "10"
 
     encrypt_message = encrypt(data)
     print("Encrypted message: ", encrypt_message)

@@ -53,12 +53,13 @@ def hamming_decode(encoded_data):
 
     # Extract and return the original data
     decoded_data = [encoded_data[i] for i in range(len(encoded_data)) if i & (i + 1) != 0] 
+
     return decoded_data
 
 
 def main():
     # data = input("Enter 4 bits of data: ")
-    data = "1011010"
+    data = "1110"
     # if len(data) != 4 or not all(bit in '01' for bit in data):
     #     print("Invalid input. Please enter 4 bits of binary data.")
     #     return

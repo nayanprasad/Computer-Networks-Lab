@@ -15,6 +15,7 @@ class HuffmanTree:
 
 
 def build_tree(data: str):
+    
     frequency = Counter(data)
     
     priority_queue = []
