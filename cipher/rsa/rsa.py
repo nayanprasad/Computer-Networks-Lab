@@ -14,8 +14,8 @@ def multiplicative_inverse(e, phi):
     temp_phi = phi
 
     while e > 0:
-        temp1 = temp_phi // e
-        temp2 = temp_phi - temp1 * e
+        temp1 = temp_phi // e # floor division
+        temp2 = temp_phi - temp1 * e 
         temp_phi = e
         e = temp2
 
@@ -50,13 +50,18 @@ def generate_keypair(p, q):
         e = random.randrange(1, phi)
 
     # Calculate d, the modular multiplicative inverse of e (mod phi)
-    d = multiplicative_inverse(e, phi)
+    # d = multiplicative_inverse(e, phi)
+    d = pow(e, -1, phi)
 
     return ((e, n), (d, n))
 
 def encrypt(pk, plaintext):
     e, n = pk
-    cipher = [(ord(char) ** e) % n for char in plaintext]
+    # cipher = [(ord(char) ** e) % n for char in plaintext]
+    cipher = []
+    for char in plaintext:
+      cipher.append((ord(char) ** e) % n)
+      
     return cipher
 
 def decrypt(pk, ciphertext):
