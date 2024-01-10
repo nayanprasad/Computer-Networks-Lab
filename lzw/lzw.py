@@ -86,7 +86,8 @@ def decompress(compressed_data):
             current_string = dictionary[prev_code] + dictionary[prev_code][0]  # Reconstruct string
 
         decompressed.append(current_string)  # Append to decompressed data
-        dictionary[next_code] = dictionary[prev_code] + current_string[0]  # Add new string to dictionary
+        # dictionary[next_code] = dictionary[prev_code] + current_string[0]  # Add new string to dictionary
+        dictionary[next_code] = current_string 
         next_code += 1  
         prev_code = code  
 
