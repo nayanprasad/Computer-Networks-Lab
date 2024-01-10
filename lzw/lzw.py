@@ -7,16 +7,11 @@ def compress(data):
 
     for symbol in data:
         current += symbol
-        print("result: ", result)
         if current not in dictionary:
-            print("current: ", current)
             dictionary[current] = next_code
             next_code += 1
             result.append(dictionary[current[:-1]])  # append code of current without last symbol (eg: 'ab' -> 'a')  current[0:-1] = current[:-1] | ie from first to last-1
             current = symbol
-
-    print("result: ", result)
-    print("current: ", current)
 
     if current in dictionary:
         result.append(dictionary[current])  
@@ -41,7 +36,7 @@ def decompress(compressed_data):
             raise ValueError("Invalid compressed data")
 
         result.append(entry)
-        dictionary[next_code] = dictionary[prev_code] + entry[0] 
+        dictionary[next_code] = dictionary[prev_code] + entry[0]   
         next_code += 1
         prev_code = code
 
@@ -50,7 +45,7 @@ def decompress(compressed_data):
 
 def main():
     #   message = input("Enter message: ")
-    compressed = compress("ab")
+    compressed = compress("wabb")
     print("Compressed message: ", compressed)
     decompressed = decompress(compressed)
     print("Decompressed message: ", decompressed)

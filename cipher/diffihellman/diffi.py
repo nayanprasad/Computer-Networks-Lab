@@ -29,12 +29,12 @@ def generate_primitive_root(p):
     
 def mode_exp(base, exponent, mod):
   result = 1
-  base = base % mod
+  base = base % mod  # reduce base
   while exponent > 0:
-    if exponent % 2 == 1:
-      result = (result * base) % mod
-    exponent //= 2
-    base = (base * base) % mod
+    if exponent % 2 == 1:  # exponent is odd
+      result = (result * base) % mod # multiply result with base and reduce it
+    exponent //= 2 
+    base = (base * base) % mod 
   return result
 
 def diffi_exchange():
